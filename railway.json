@@ -4,7 +4,6 @@
     "builder": "DOCKERFILE"
   },
   "deploy": {
-    "preDeployCommand": "npm run db:setup",
     "startCommand": "npm start",
     "restartPolicyType": "ON_FAILURE",
     "restartPolicyMaxRetries": 10
