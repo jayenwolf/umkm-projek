@@ -1,0 +1,45 @@
+<!doctype html>
+<html lang="id">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="description" content="WarungFit — toko suplemen gym lokal dengan katalog, checkout, payment gateway, ongkir, tracking, dan dashboard admin.">
+  <title>WarungFit — Suplemen Gym & Nutrisi Olahraga</title>
+  <link rel="stylesheet" href="/styles.css">
+</head>
+<body>
+  <div class="announcement">Gratis ongkir area Samarinda min. Rp300.000 • Kode <b>PROMO10</b></div>
+  <header class="header">
+    <div class="container nav">
+      <a href="#home" class="brand"><span class="brand-mark">WF</span><span>Warung<i>Fit</i></span></a>
+      <button id="menuButton" class="menu-button" aria-label="Buka menu">☰</button>
+      <nav id="mainNav">
+        <a href="#home">Beranda</a><a href="#products">Produk</a><a href="#tracking">Lacak Pesanan</a><a href="#about">Tentang</a>
+      </nav>
+      <div class="nav-actions">
+        <a href="#wishlist" class="round-link" title="Wishlist">♡</a>
+        <a href="#account" class="round-link" title="Akun">◎</a>
+        <a href="#cart" class="cart-link">Keranjang <b id="cartCount">0</b></a>
+      </div>
+    </div>
+  </header>
+  <main id="app"><div class="loading-screen"><div class="loader"></div><p>Menyiapkan WarungFit...</p></div></main>
+  <footer class="footer">
+    <div class="container footer-grid">
+      <div><a href="#home" class="brand light"><span class="brand-mark">WF</span><span>Warung<i>Fit</i></span></a><p>Suplemen gym, nutrisi olahraga, dan aksesoris pilihan untuk menemani progres latihan Anda.</p></div>
+      <div><h4>Belanja</h4><a href="#products">Semua Produk</a><a href="#products?category=protein">Protein</a><a href="#products?category=performance">Performance</a></div>
+      <div><h4>Bantuan</h4><a href="#tracking">Lacak Pesanan</a><a href="#account">Akun Pelanggan</a><a href="#about">Kebijakan Toko</a></div>
+      <div><h4>Informasi Toko</h4><p>Samarinda, Kalimantan Timur</p><p>Senin–Sabtu, 09.00–20.00 WITA</p><a id="footerWhatsapp" target="_blank" rel="noreferrer">Chat WhatsApp</a></div>
+    </div>
+    <div class="container copyright">© <span id="year"></span> WarungFit. Template toko UMKM berbasis Express + PostgreSQL.</div>
+  </footer>
+  <div id="toast" class="toast"></div>
+  <div id="modal" class="modal" aria-hidden="true"><div class="modal-card"><button id="modalClose" class="modal-close">×</button><div id="modalBody"></div></div></div>
+  <a id="whatsappFloat" class="whatsapp-float" target="_blank" rel="noreferrer">WA</a>
+  <div class="assistant">
+    <div id="assistantPanel" class="assistant-panel hidden"><div class="assistant-head"><b>Asisten WarungFit</b><button id="assistantClose">×</button></div><p>Tanyakan stok, harga, atau jenis produk.</p><div id="assistantMessages" class="assistant-messages"><div class="bot-message">Halo! Coba tanya: “Ada creatine yang ready?”</div></div><form id="assistantForm"><input id="assistantInput" placeholder="Tulis pertanyaan..." required><button>Kirim</button></form></div>
+    <button id="assistantToggle" class="assistant-toggle">✦</button>
+  </div>
+  <script type="module" src="/app.js"></script>
+</body>
+</html>

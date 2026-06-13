@@ -1,0 +1,23 @@
+{
+  "name": "warungfit-store",
+  "version": "1.0.0",
+  "description": "Website penjualan suplemen gym UMKM dengan Express dan PostgreSQL",
+  "main": "server.js",
+  "type": "module",
+  "scripts": {
+    "dev": "node --watch server.js",
+    "start": "node server.js",
+    "db:setup": "node database/setup.js",
+    "check": "node --check server.js && node --check public/app.js"
+  },
+  "engines": { "node": ">=20" },
+  "dependencies": {
+    "bcryptjs": "^3.0.2",
+    "cookie-parser": "^1.4.7",
+    "dotenv": "^17.2.3",
+    "express": "^5.1.0",
+    "helmet": "^8.1.0",
+    "jsonwebtoken": "^9.0.2",
+    "pg": "^8.16.3"
+  }
+}

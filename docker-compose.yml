@@ -1,0 +1,40 @@
+services:
+  postgres:
+    image: postgres:17-alpine
+    restart: unless-stopped
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgres
+      POSTGRES_DB: warungfit
+    ports:
+      - "5432:5432"
+    volumes:
+      - warungfit_data:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U postgres -d warungfit"]
+      interval: 5s
+      timeout: 5s
+      retries: 10
+
+  app:
+    build: .
+    restart: unless-stopped
+    depends_on:
+      postgres:
+        condition: service_healthy
+    ports:
+      - "3000:3000"
+    environment:
+      NODE_ENV: development             
+      PORT: "3000"
+      DATABASE_URL: "postgresql://postgres:postgres@postgres:5432/warungfit"
+      JWT_SECRET: "ganti-secret-sebelum-production-123456789"
+      BASE_URL: "http://localhost:3000"
+      STORE_WHATSAPP: "62857-3783-5417"
+
+      MIDTRANS_SERVER_KEY: "${MIDTRANS_SERVER_KEY}"
+      MIDTRANS_CLIENT_KEY: "${MIDTRANS_CLIENT_KEY}"
+      MIDTRANS_IS_PRODUCTION: "${MIDTRANS_IS_PRODUCTION:-false}"
+
+volumes:
+  warungfit_data:
